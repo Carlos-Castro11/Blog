@@ -3,7 +3,7 @@ Blog com NodeJs, utilizando MySQL, Bootstrap4, Express e EJS como viewEngine
 
 
 # OBS
-+ O principal objetivo nesse projeto é aprimorar e aprender o NODE.js, o foconão foi o front-end.
++ O principal objetivo nesse projeto é aprimorar e aprender mais sobre o NODE.js.
 
 # Dependências
 + NODEMON
