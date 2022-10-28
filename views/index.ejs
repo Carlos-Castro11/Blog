@@ -1,5 +1,30 @@
-<%- include ("partials/header.ejs") %>
+<%- include ("partials/header.ejs") %> <%- include ("partials/homeNavbar.ejs")
+%>
 <body>
-  <h1>SALVE</h1>
+  <div class="container">
+    <hr />
+    <div class="bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Bem vindo!</h1>
+        <p class="col-md-8 fs-4">
+          Simples blog feito para aperfeiçoar as habilidades com o NODE.js.
+        </p>
+        <p class="col-md-8 fs-6">Descrição detalhada aqui!</p>
+        <button class="btn btn-primary btn-lg" type="button">Ler mais</button>
+      </div>
+    </div>
+    <hr />
+    <% articles.forEach(article => { %>
+    <div class="card">
+      <div class="card-header">
+        <h2><%= article.title %></h2>
+      </div>
+      <div class="card-body">
+        <a class="btn-success btn" href="/<%= article.slug %>">Ler artigo</a>
+      </div>
+    </div>
+    <br />
+    <% }) %>
+  </div>
 </body>
 <%- include ("partials/footer.ejs") %>

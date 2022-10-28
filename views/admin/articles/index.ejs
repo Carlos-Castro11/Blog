@@ -3,10 +3,8 @@
 
 <div class="container">
   <hr />
-  <h2>Categorias</h2>
-  <a href="/admin/categories/new" class="btn btn-success">
-    Criar nova categoria</a
-  >
+  <h2>Artigos</h2>
+  <a href="/admin/articles/new" class="btn btn-success"> Criar novo Artigo</a>
   <hr />
   <table class="table table-bordered">
     <thead>
@@ -14,31 +12,28 @@
         <th>ID</th>
         <th>Título</th>
         <th>Slug</th>
+        <th>Categoria</th>
         <th>Ações</th>
       </tr>
     </thead>
     <tbody>
-      <% categories.forEach(category => { %>
+      <% articles.forEach(article => { %>
       <tr>
-        <th><%= category.id %></th>
-        <th><%= category.title %></th>
-        <th><%= category.slug %></th>
-        <th>
-          <a
-            href="/admin/categories/edit/<%= category.id %>"
-            class="btn btn-warning"
-            >Editar</a
-          >
+        <td><%= article.id %></td>
+        <td><%= article.title %></td>
+        <td><%= article.slug %></td>
+        <td><%= article.category.title %></td>
+        <td>
           <form
-            action="/categories/delete"
+            action="/articles/delete"
             method="POST"
             style="display: inline"
             onsubmit="ConfirmDelete(event, this)"
           >
-            <input type="hidden" name="id" value="<%= category.id %>" />
+            <input type="hidden" name="id" value="<%= article.id %>" />
             <button class="btn btn-danger">Deletar</button>
           </form>
-        </th>
+        </td>
       </tr>
       <% }) %>
     </tbody>
@@ -49,7 +44,7 @@
 <script>
   function ConfirmDelete(event, form) {
     event.preventDefault();
-    var decision = confirm("Tem certeza que deseja excluir essa categoria?");
+    var decision = confirm("Tem certeza que deseja excluir esse artigo?");
     if (decision) {
       form.submit();
     } else {
